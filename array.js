@@ -22,14 +22,31 @@
 // additionElement(66);
 
 
-function ConstructorFunction(lastName, firstName){
-    this.lastName = lastName;
-    this.firstName = firstName;
+// function ConstructorFunction(lastName, firstName){
+//     this.lastName = lastName;
+//     this.firstName = firstName;
+// }
+
+// const newPerson = new ConstructorFunction('Sam', 'Smith');
+// console.log(newPerson.lastName);
+// console.log(newPerson.firstName);
+// console.log(newPerson);
+
+
+const newObject = new Object();
+newObject.name = 'Subodh';
+newObject.age = 15;
+console.log(newObject);
+console.log(newObject.name);
+console.log(newObject.age);
+console.log('---------------------------')
+
+function Person(name, age){
+    this.name = name;
+    this.age = age;
 }
 
-const newPerson = new ConstructorFunction('Sam', 'Smith');
-console.log(newPerson.lastName);
-console.log(newPerson.firstName);
-console.log(newPerson);
-
-
+const newObejct = new Person('Subodh', 15);
+console.log(newObject);
+console.log(newObject.name);
+console.log(newObject.age);
