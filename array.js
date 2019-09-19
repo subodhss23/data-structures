@@ -104,28 +104,66 @@
 
 //implementing queue
 
-class Queue{
+// class Queue{
+//     constructor(arr, elem){
+//         this.arr = arr;
+//         this.elem = elem;
+//     }
+
+//      pushing(){
+//          this.arr.push(this.elem);
+//          return this.arr;
+//      }
+
+//      unshifting(){
+//          this.arr.unshift();
+//          return this.arr;
+//      }
+
+//      newarr(){
+//          return this.arr;
+//      }
+// }
+
+// let newobj = new Queue([6,7,8,9], 10);
+// // console.log(newobj.pushing());
+// console.log(newobj.unshifting());
+// console.log(newobj.newarr());
+
+
+// implementing stack without using build in methods.
+
+
+class Stack{
     constructor(arr, elem){
         this.arr = arr;
         this.elem = elem;
     }
 
-     pushing(){
-         this.arr.push(this.elem);
-         return this.arr;
-     }
+    printing(){
+        console.log(`This is the array before any operation is done ${this.arr}`);
+    }
 
-     unshifting(){
-         this.arr.unshift();
-         return this.arr;
-     }
+    pushing(){
+        if(this.arr === null){
+            this.arr = this.elem;
+            console.log(this.arr);
 
-     newarr(){
-         return this.arr;
-     }
+        } else {
+            this.arr[this.arr.length] = this.elem;
+            console.log(this.arr);
+        }
+    }
+
+    poping(){
+        if(this.arr === null){
+            console.log('no element sorry we could have returned -1 but we didn\'t');
+        } else {
+            this.arr[this.arr.length - 1]
+        }
+    }
 }
 
-let newobj = new Queue([6,7,8,9], 10);
-// console.log(newobj.pushing());
-console.log(newobj.unshifting());
-console.log(newobj.newarr());
+const newobj = new Stack(null, 55);
+console.log(newobj.printing());
+console.log(newobj.pushing());
