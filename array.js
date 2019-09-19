@@ -73,29 +73,59 @@
 
 //implementing simple stack
 
-class Stack{
+// class Stack{
+//     constructor(arr, elem){
+//         this.arr = arr;
+//         this.elem = elem;
+//     }
+
+//     pushing(){
+//          this.arr.push(this.elem);
+//          return this.arr;
+//     }
+
+//     poping(){
+//          return this.arr.pop()
+//     }
+
+//     print(){
+//         return this.arr;
+//     }
+
+// }
+
+
+// let newobj = new Stack([1,2,3,4], 5);
+// console.log(newobj.pushing());
+// console.log(newobj.poping());
+// console.log(newobj.print())
+
+
+
+//implementing queue
+
+class Queue{
     constructor(arr, elem){
         this.arr = arr;
         this.elem = elem;
     }
 
-    pushing(){
+     pushing(){
          this.arr.push(this.elem);
          return this.arr;
-    }
+     }
 
-    poping(){
-         return this.arr.pop()
-    }
+     unshifting(){
+         this.arr.unshift();
+         return this.arr;
+     }
 
-    print(){
-        return this.arr;
-    }
-
+     newarr(){
+         return this.arr;
+     }
 }
 
-
-let newobj = new Stack([1,2,3,4], 5);
-console.log(newobj.pushing());
-console.log(newobj.poping());
-console.log(newobj.print())
+let newobj = new Queue([6,7,8,9], 10);
+// console.log(newobj.pushing());
+console.log(newobj.unshifting());
+console.log(newobj.newarr());
