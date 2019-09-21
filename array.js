@@ -1,36 +1,23 @@
-// writing 100 lines of code at least
-//implementing transvering through all elements of a string 
-let string = "iamastring"
-// var newstring = "";
-// for(let i = 0 ; i < string.length ; i++){
-//     newstring = newstring + string[i];
+// let's work on array now
+
+// let x = [1,2,3,4]
+// for (let i = 0; i < x.length; i++){
+//     console.log(x[i]);
 // }
-// console.log(newstring);
 
+function insertionArray(position, element)
+{
+    let x = [1,2,3,4,5];
+    for (let i = 0; i < x.length; i++){
+        // if(x[position] !== null){
+        //     x[position] = element;
+        // }
+        while(true){
+            x[position] = element;
+            break;
+        }
+    }
+    console.log(x);
+}
 
-
-// =====================================
-
-// adding an element in postion x
-
-let position = 3;
-let element = 'bbb';
-string[position] = element ;
-string[3] = 4;
-// console.log(string[3]);
-
-let newstring = "";
-let array = string.split('');
-// console.log(array);
-array[position] = element;
-// console.log(array[position]);
-console.log(array);
-console.log(array.join('').toString());
-string = array.join('').toString();
-console.log(string);
-
-
-
-// string = array.toString();
-// console.log(string.join(''));
-
+insertionArray(2, 4444);
