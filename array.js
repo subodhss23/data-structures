@@ -6,21 +6,24 @@
 //     console.log(string[i]);
 // }
 
-// adding in element in certain position of a string
-// function addElement(elem, position){
-//     let string = "thisiselement";
-//     console.log(string[2]);
 
-// }
+let string = "thisisme";
+let newString = '';
+string = string.split('');
+console.log(string);
+console.log('----------------------------');
+let position = 2;
+let element = 44444;
 
-let list = "what";
-var text = "";
-// for (var member in list){
-//     text = text + list[member]
-// }
-let member = 0;
-console.log(`This is what text looks before execution ----> ${text}`);
-text = text + list[member];
-console.log(`This is what text looks after execution  ----->  ${text}`);
+console.log(`This is what string[2] was ${string[2]}`);
+console.log('----------------------------');
 
-// addElement('a', 2);
+string[position]= element;
+console.log('----------------------------');
+console.log(string);
+console.log('----------------------------');
+
+console.log(`This is what happed to string[2] ${string[2]}`);
+console.log('----------------------------');
+
+// console.log(`This is what newString looks like after all execution is done ${newString}`);
