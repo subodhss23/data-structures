@@ -1,29 +1,26 @@
-// push
-// pop
-// splice 
-// filter
+// implementing linked list
 
+// The design of a linked list
 
-// let arr = [1,2,3,4,5];
-// let string = "iamastring";
-
-// console.log(`this is very old array where no methods has been used ${arr}`);
-// let  newarr = arr.splice(0,2);
-// console.log(`This is new array ${newarr}`);
-// console.log(`This is our old array after splice has been implement on it${arr}`);
-
-// add an element to the array in certain position
-function addArray(element, position){
-    let array = [1,2,3,4];
-        array = array.splice(position, 1, element);
-    console.log(array);
+class LinkedListNode{
+    constructor(data){
+        this.data = data;
+        this.next = null;
+    }
 }
 
-addArray(9999, 4);
+//create a first node
+const head = new LinkedListNode(12);
 
-// let newarr = arr.filter(function(element){
-//     return element < 4;
-// })
+//add a second node
+head.next = new LinkedListNode(99);
 
-// console.log(newarr);
-// console.log(arr);
+// add a third node
+head.next = new LinkedListNode(111);
+
+let current = head;
+
+while(current !== null){
+    console.log(current.data);
+    current = current.next;
+}
