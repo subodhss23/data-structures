@@ -123,4 +123,50 @@ removeAt(pos){
         }
         return true;
     }
+
+    length(){
+        let current = this.head;
+        let counter = 0;
+        while(current !== null){
+            counter++;
+            current = current.next;
+        }
+        return counter;
+    }
+
+    isEmpty(){
+        return this.length() < 1;
+    }
+
+    traverse(fn){
+        let current = this.head;
+        while(current !== null){
+            fn(current);
+            current = current.next;
+        }
+        return true;
+    }
+
+    traversereverse(fn){
+        let current = this.tail;
+        while(current !== null){
+            fn(current);
+            current = current.prev;
+        }
+        return true;
+    }
+
+    search(item){
+        let current = this.head;
+        let counter = 0;
+
+        while(current){
+            if(current.data == item){
+                return counter;
+            }
+            currnet = current.next;
+            counter++;
+        }
+        return false;
+    }
 }

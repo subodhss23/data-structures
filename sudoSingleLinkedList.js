@@ -109,5 +109,39 @@ class LinkedList{
         return this.length() < 1;
     }
 
+    travese(fn){
+        let current = this.head;
+        while(current.next !== null){
+            fn(current);
+            current = current.next;
+        }
+        return true;
+    }
+
+    display(){
+        let current = this.head;
+        let elements = [];
+        while(current !== null){
+            elements.push(current.data);
+            current = current.next;
+        }
+        return elements.join('');
+    }
+
+    search(item){
+        let current = this.head.next;
+        let counter = 0;
+
+        while(current){
+            if(current.data == item){
+                return counter;
+            }
+            current = current.next;
+            counter++;
+        }
+        return false;
+    }
+
+
     
     }
