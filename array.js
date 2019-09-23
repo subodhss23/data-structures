@@ -1,26 +1,25 @@
-// implementing linked list
+// implementing basic functions for array
 
-// The design of a linked list
+const array = [2,5,1,9,6,7];
+array[4];
 
-class LinkedListNode{
-    constructor(data){
-        this.data = data;
-        this.next = null;
-    }
-}
+// inserting element to tail
+array.push(4);
 
-//create a first node
-const head = new LinkedListNode(12);
+// inserting or updating value in index x
+array[8] = 3;
+console.log(array);
+// [ 2, 5, 1, 9, 6, 7, 4, <1 empty item>, 3 ]
 
-//add a second node
-head.next = new LinkedListNode(99);
+// inserting elements on head which changes index of all emement
+array.unshift(0);
+console.log(array);
 
-// add a third node
-head.next = new LinkedListNode(111);
+// deleting element in x index
+// splice modifies original array "array"
+array.splice(4, 2);
+console.log(array);
 
-let current = head;
-
-while(current !== null){
-    console.log(current.data);
-    current = current.next;
-}
+// deleting element from the beginning of array
+array.shift();
+console.log(array);
