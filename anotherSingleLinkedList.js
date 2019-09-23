@@ -49,5 +49,65 @@ class LinkedList{
         return false;
     }
 
+    removeAt(pos){
+        let counter = 0;
+        let current = this.head;
+        while(current !==null){
+            let previous = current;
+            if(counter === pos){
+                previous.next = current.next;
+                return true;
+            }
+            counter++;
+        }
+        return false;
+    }
+
+    reverse(){
+        let current = this.head.next;
+        let prev = null;
+        let next;
+        while(current !== null){
+            next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+        this.head.next = prev;
+        return true;
+    }
+
+    swap(nodeOne, nodeTwo){
+        let current = this.head;
+        let counter = 0;
+        let firstNode;
+        while(current !== null){
+            current = current.next;
+            if(counter == nodeOne){
+                fistNode = current;
+            } else if(counter == nodeTwo){
+                let temp = current.data;
+                current.data = fistNode.data;
+                firstNode.data = temp;
+            }
+            counter++;
+        }
+        return true;
+    }
+
+    length(){
+        let current = this.head;
+        let counter = 0;
+        while(current.next !== null){
+            current = current.next;
+            counter++;
+        }
+        return counter;
+    }
+    
+    isEmpty(){
+        return this.length() < 1;
+    }
+
     
     }
