@@ -120,5 +120,17 @@ class HashTableWithChaining{
         isEmpty(){
             return this.size()<1;
         }
+
+        traverse(fn){
+            for(let i=0; i<this.table.length; i++){
+                if(this.table[i]){
+                    let current = this.table[i];
+                    while(current){
+                        fn(current);
+                        current = current.next;
+                    }
+                }
+            }
+        }
     }
 
