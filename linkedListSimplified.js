@@ -54,6 +54,82 @@ class LinkedList{
         return null;
     }
 
+    //inserting node at uses getAt helper function
+    insertAt(data, index){
+        if(!this.head){
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0){
+            this.head = new Node(data, this.head);
+            return;
+        }
+
+        //if not empty and index is not 0 then use getAt()
+        //to find previous node
+
+        const previous = this.getAt(index - 1);
+        let newNode = new Node(data);
+        newNode.next = previous.next;
+        previous.next = newNode;
+
+        return this.head;
+    }
+
+    // delete operation on a singly linked list
+
+    // deleting the first node
+    deleteFirstNode(){
+        if (!this.head){
+            return;
+        }
+        this.head = this.head.next;
+        return this.head;
+    }
+
+    // deleting the last node
+    deleteLastNode(){
+        if(!this.head){
+            return null;
+        }
+        if(!this.head.next){
+            this.head = null;
+            return;
+        }
+        let previous = this.head;
+        let tail = this.head.next;
+
+        while(tail.next !== null){
+            previous = tail;
+            tail = tail.next;
+        }
+        previous.next = null;
+        return this.head;
+    }
+
+    // deleting a node from the middle of the list
+    deleteAt(index){
+        if (!this.head){
+            this.head = new Node(data);
+            return;
+        }
+        if (index === 0){
+            this.head = this.head.next;
+            return;
+        }
+
+        // else, use getAt() to find the previous node
+        const previous = this.getAt(index-1);
+        if(!previous || !previous.next){
+            return;
+        }
+        previous.next = previous.next.next;
+        return this.head;
+    }
+
+    deleteList(){
+        this.head = null;
+    }
 }
 
 let list = new LinkedList();
