@@ -47,7 +47,7 @@ class HashTable{
         let string = '';
         for(const value in this.values){
             for(const key in this.values[value]){
-                string += `{This.values[value][key]}`;
+                string += `${this.values[value][key]}`;
             }
         }
         console.log(string.trim());
@@ -56,3 +56,14 @@ class HashTable{
 
 const hashTable = new HashTable(3);
 hashTable.add('first', 1);
+hashTable.add('second', 2);
+hashTable.add('third', 3);
+hashTable.add('fourth', 4);
+hashTable.add('fifth', 5);
+hashTable.print();
+console.log('length :', hashTable.length());
+console.log('search second: ', hashTable.search('second'));
+hashTable.remove('fourth');
+hashTable.remove('first');
+hashTable.print();
+console.log('length :', hashTable.length());
