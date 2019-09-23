@@ -25,6 +25,7 @@ class LinkedList{
             // to implement this we have to travel all the way to end 
             // to find tail's next pointer which is pointing to null
         insertAtTheEnd(data){
+            let newNode = new Node(data);
             if(!this.head){
                 this.head = newNode;
                 return this.head;
@@ -130,6 +131,22 @@ class LinkedList{
     deleteList(){
         this.head = null;
     }
-}
+
+    print() {
+        let string = '';
+        let current = this.head;
+        while(current) {
+          string += `${current.data} `;
+          current = current.next;
+        }
+        console.log(string.trim());
+      }
+    }
+
 
 let list = new LinkedList();
+list.insertAtBeginngin(2);
+list.insertAtBeginngin(3);
+list.insertAtTheEnd(4);
+list.insertAtTheEnd(5);
+list.print();
