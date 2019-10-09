@@ -27,10 +27,6 @@ class LinkedList{
         this.length++;
         return this;
     }
-    
-    mappingThings(){
-        console.log(JSON.stringify(this, null, 2));
-    }
 
     traverse(){
         var current = this.head;
@@ -51,13 +47,11 @@ class LinkedList{
         this.tail = newTail;
         this.tail.next = null;
         this.length--;
-    // if(this.length === 0){
-    //     this.head = null;
-    //     this.tail = null;
-    // }
-    console.log(current);
-    console.log(this.head);
-    console.log(this.tail);
+        if(this.length === 0){
+            this.head = null;
+            this.tail = null;
+        }
+        return current;
    }
 
 
@@ -86,9 +80,10 @@ unshifting(val){
         this.head = newNode;
     }
     this.length++;
-    console.log(this);
+    return this;
 }
 
+// getting the value of a given index
 get(index){
     if( index < 0 || index >= this.length) return undefined;
     let count = 0;
@@ -97,9 +92,10 @@ get(index){
         current = current.next;
         count++;
     }
-    console.log(`this is the current fron get method ${JSON.stringify(current)}`);
+   return current;
 }
 
+// setting existing node to new value
 set(index, val){
     let foundNode = this.get(index);
     if(foundNode){
@@ -107,6 +103,20 @@ set(index, val){
         return true;
     }
     return false;
+}
+// adding a node to the linked list at specific position
+insert(){
+    if(index < 0 || index > this.length) return true;
+    if(index === this.length) return !!this.push(val);
+    if(index === 0) return !!this.unshifting(val);
+    
+    let newNode = new Node(val);
+    let prev = this.get(index - 1);
+    let temp = prev.next;
+    prev.next = newNode;
+    newNode.next = temp;
+    this.length++;
+    return true;
 }
 }
 
@@ -116,11 +126,16 @@ list.push(4);
 list.push(55);
 list.push(33);
 list.push(22);
-console.log('---------------------------------------------------')
+
 
 list.get(list.length-1);
 list.get(1);
 list.get(2);
+console.log('---------------------------------------------------')
+console.log(list);
+list.set(1, "what");
+console.log('---------------------------------------------------')
+console.log(list);
 
 // list.pop();
 // console.log(list);
