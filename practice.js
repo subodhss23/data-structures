@@ -12,7 +12,7 @@ class LinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
-        this.size = 0;
+        this.length = 0;
     }
 
     push(val){
@@ -24,29 +24,60 @@ class LinkedList{
             this.tail.next = newNode;
             this.tail = newNode;
         }
-        this.size++;
+        this.length++;
         return this;
     }
     
     mappingThings(){
-         console.log(JSON.stringify(this, null, 2));
-        // console.log(JSON.stringify(this.head));
-        // console.log(`what if this.tail is called ${this.tail}`);
+        console.log(JSON.stringify(this, null, 2));
     }
 
     traverse(){
         var current = this.head;
         while(current){
-            console.log(`This is current.val ${current.val}`);
-            console.log(`This is the current.next ${current.next}`);
+            console.log(current.val);
             current = current.next;
         }
     }
-}
 
+   pop(){
+       if(!this.head) return undefined;
+       let current = this.head;
+       let newTail = current;
+       while(current.next){
+           newTail = current;
+           current = current.next;
+        }
+        this.tail = newTail;
+        this.tail.next = null;
+        this.length--;
+    // if(this.length === 0){
+    //     this.head = null;
+    //     this.tail = null;
+    // }
+    console.log(current);
+    console.log(this.head);
+    console.log(this.tail);
+   }
+
+
+// removing a new node from the beginning of the linked list
+shifting(){
+    if(!this.head) return undefined;
+    if(this.length == 0) return undefined;
+    let currentHead  = this.head;
+    this.head = currentHead.next;
+    this.length--;
+    console.log(currentHead);
+    }   
+}
 let list = new LinkedList();
-list.push(1);
-list.push(2);
-list.push(3);
-list.push(3);
-list.mappingThings();
+list.push(4);
+list.shifting();
+console.log('---------------------------------------------------')
+console.log(list);
+console.log(this.head);
+console.log(this.tail);
+// list.pop();
+// console.log(list);
+
