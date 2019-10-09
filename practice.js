@@ -76,8 +76,7 @@ list.push(4);
 list.shifting();
 console.log('---------------------------------------------------')
 console.log(list);
-console.log(this.head);
-console.log(this.tail);
+
 // list.pop();
 // console.log(list);
 
