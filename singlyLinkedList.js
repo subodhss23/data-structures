@@ -104,12 +104,13 @@ set(index, val){
     }
     return false;
 }
+
 // adding a node to the linked list at specific position
-insert(){
-    if(index < 0 || index > this.length) return true;
+insert(index, val){
+    if(index < 0 || index > this.length) return false;
     if(index === this.length) return !!this.push(val);
     if(index === 0) return !!this.unshifting(val);
-    
+
     let newNode = new Node(val);
     let prev = this.get(index - 1);
     let temp = prev.next;
@@ -117,7 +118,45 @@ insert(){
     newNode.next = temp;
     this.length++;
     return true;
-}
+    }
+
+// removing a node from the linked list a a pecific position
+remove(index){
+        if(index < 0 || index >= this.length) return undefinded;
+        if(index === this.length - 1 ) return this.pop();
+        if(index === 0) return this.shifting();
+        let prevNode = this.get(index - 1);
+        let removed = prevNode.next;
+        prevNode.next = removed.next;
+        this.length--;
+        console.log(removed);
+    }
+
+    reverse(){
+        let tempNode = this.head;
+        this.head = this.tail;
+        this.tail = tempNode;
+        let next = null;
+        let prev = null;
+        for(var i = 0; i < this.length; i++){
+            next = tempNode.next;
+            tempNode.next = prev;
+            prev = tempNode;
+            tempNode = next;
+        }
+        return this;
+    }
+
+
+    print(){
+        let arr = [];
+        let current = this.head;
+        while(current){
+            arr.push(current.val);
+            current = current.next;
+        }
+        console.log(arr);
+    }
 }
 
 
@@ -126,17 +165,5 @@ list.push(4);
 list.push(55);
 list.push(33);
 list.push(22);
-
-
-list.get(list.length-1);
-list.get(1);
-list.get(2);
-console.log('---------------------------------------------------')
-console.log(list);
-list.set(1, "what");
-console.log('---------------------------------------------------')
-console.log(list);
-
-// list.pop();
-// console.log(list);
+list.remove(1);
 
