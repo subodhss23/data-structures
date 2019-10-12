@@ -144,7 +144,7 @@ remove(index){
             prev = tempNode;
             tempNode = next;
         }
-        return this;
+         console.log(this);
     }
 
 
@@ -165,5 +165,7 @@ list.push(4);
 list.push(55);
 list.push(33);
 list.push(22);
-list.remove(1);
+list.print();
+list.reverse();
+
 
