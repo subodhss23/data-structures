@@ -96,11 +96,18 @@ class DoublyLinkedList{
     }
 
     // set - replacing the value of a node in a doubly linked list
-    
+    set(index, val){
+        var foundNode = this.get(index);
+        if(foundNode !== null){
+           foundNode.next = next;
+            return true;
+        } 
+        return false;
+    }
 }
 
 let list = new  DoublyLinkedList();
 list.push('first');
 list.push('second');
 list.push('third');
-list.get(0);
+list.set(1, 'what is up?');
