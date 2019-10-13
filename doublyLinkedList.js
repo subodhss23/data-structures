@@ -30,25 +30,54 @@ class LinkedList{
 
     // removing a node from the end of doubly linked list
     pop(){
-        if(!this.head || !this.tail) return undefined;
-        let currentTail = this.tail;
+        if(!this.head || !this.tail || this.size === 0) return undefined;
+        let removeTail = this.tail;
         if(this.size === 1){
             this.head = null;
             this.tail = null;
+        } else{
+            this.tail = removeTail.prev;
+            this.tail.next = null;
+            removeTail.prev = null;
         }
-        this.tail = this.tail.prev;
-        currentTail.next = null;
-        currentTail.prev = null;
         this.size--;
-        console.log(currentTail);
+        console.log(removeTail);
+    }
+
+    unshifting(val){
+        let newNode = new Node(val);
+        if(!this.head){
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.head.prev = newNode;
+            newNode.next = this.head;
+            this.head = newNode;
+        }
+        this.size++;
+        return this;
     }
    
+    shift(){
+        if(!this.head) return undefinded;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
+        } else{
+            var shiftingNode = this.head;
+            this.head = this.head.next;
+            this.head.prev = null;
+            shiftingNode.next = null;
+        }
+        this.size--;
+        console.log(shiftingNode);
+    }
 }
 
 let list = new  LinkedList();
-list.push(2);
-list.push(3);
-list.push(4);
-list.pop();
+list.unshifting(2);
+list.unshifting(3);
+list.unshifting(4);
 console.log(list);
+
 
