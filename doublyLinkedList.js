@@ -6,17 +6,17 @@ class Node{
     }
 }
 
-class LinkedList{
+class DoublyLinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
-        this.size = 0;
+        this.length = 0;
     }
 
     // adding nodes at the end of doubly linked list
     push(val){
         let newNode = new Node(val);
-        if(!this.head || this.size === 0){
+        if(!this.head || this.length === 0){
             this.head = newNode;
             this.tail = newNode;
         } else{
@@ -24,15 +24,15 @@ class LinkedList{
             newNode.prev = this.tail;
             this.tail = newNode;
         }
-        this.size++;
+        this.length++;
         return this;
     }
 
     // removing a node from the end of doubly linked list
     pop(){
-        if(!this.head || !this.tail || this.size === 0) return undefined;
+        if(!this.head || !this.tail || this.length === 0) return undefined;
         let removeTail = this.tail;
-        if(this.size === 1){
+        if(this.length === 1){
             this.head = null;
             this.tail = null;
         } else{
@@ -40,8 +40,8 @@ class LinkedList{
             this.tail.next = null;
             removeTail.prev = null;
         }
-        this.size--;
-        console.log(removeTail);
+        this.length--;
+        return(removeTail);
     }
 
     unshifting(val){
@@ -54,7 +54,7 @@ class LinkedList{
             newNode.next = this.head;
             this.head = newNode;
         }
-        this.size++;
+        this.length++;
         return this;
     }
    
@@ -69,15 +69,38 @@ class LinkedList{
             this.head.prev = null;
             shiftingNode.next = null;
         }
-        this.size--;
-        console.log(shiftingNode);
+        this.length--;
+        return(shiftingNode);
     }
+
+    // accessing a node in a doubly linked list by its position
+    get(index){
+        if (index < 0 || index >= this.length ) return undefined;
+        var current, count;
+        if (index < this.length / 2){
+            count = 0;
+            current = this.head;
+            while(index !== count){
+                current = current.next;
+                count++;
+            }
+        } else {
+            count = this.length - 1;
+            current = this.tail;
+            while(index !== count){
+                current = current.prev;
+                count--;
+            }
+        }
+         console.log(current);
+    }
+
+    // set - replacing the value of a node in a doubly linked list
+    
 }
 
-let list = new  LinkedList();
-list.unshifting(2);
-list.unshifting(3);
-list.unshifting(4);
-console.log(list);
-
-
+let list = new  DoublyLinkedList();
+list.push('first');
+list.push('second');
+list.push('third');
+list.get(0);
