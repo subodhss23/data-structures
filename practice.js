@@ -2,33 +2,56 @@ class Node{
     constructor(val){
         this.val = val;
         this.next = null;
+        this.prev = null;
     }
 }
 
-class SingleLinkedList{
+class LinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
-        this.length = 0;
+        this.size = 0;
     }
 
     push(val){
-        var newNode = new Node(val);
+        let newNode = new Node(val);
         if(!this.head){
             this.head = newNode;
             this.tail = newNode;
         } else {
-            while(this.head.next === null){
-                this.head.next = newNode;
-                newNode.next = null;
-            }
-            this.length++;
-            return this;
+            this.tail.next = newNode;
+            newNode.prev = this.tail;
+            this.tail = newNode;
         }
+        this.size++;
+        return this;
     }
+
+    get(index){
+        if(index < 0 || this.size >= index) return undefined;
+        let count, current;
+        if(index < this.size / 2){
+            count = 0;
+            current = this.head;
+            while(index != count){
+                current = current.next;
+                count++;
+            }
+        } else {
+            count = this.length - 1;
+            current = this.tail;
+            while(index != count){
+                current = current.prev;
+                count--;
+            } 
+        }
+        console.log(current);
+    }
+  
 }
 
-let list = new SingleLinkedList();
-list.push(4);
+let list = new LinkedList();
 list.push(3);
-console.log(list);
+list.push(4);
+list.push(5);
+list.get(0);
