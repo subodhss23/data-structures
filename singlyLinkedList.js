@@ -86,11 +86,45 @@ class SinglyLinkedList{
         }
         this.length++;
         return this;
-    }       
+    }  
+    
+    // retriving a node by it's position in the linked list
+    get(index){
+        if(index < 0 || index >= this.length) return undefined;
+        let count = 0;
+        let current = this.head;
+        while(index != count){
+            current = current.next;
+            count++; 
+        }
+        console.log(current);
+    }
+
+    // updating at exsiting node
+    set(index, val){
+        let foundNode = this.get(index);
+        if(foundNode){
+            foundNode.val = val;
+            return true;
+        }
+        return false;
+    }
+
+    //adding entire new node to the linked list at a specific position
+    insert(index, val){
+        let newNode = new Node(val);
+        if(index < 0 || index > this.length) return undefined;
+        if(index === this.length ) return this.push(val);
+        if(index === 0) return this.unshift(val);
+        let prevNode = this.get(index-1);
+        
+        let beforeNode = 
+    }
 }
 
 let list = new SinglyLinkedList();
-list.push(4);
-
-list.shift();
-console.log(list);
+list.push('one');
+list.push('two');
+list.push('three');
+list.push('four');
+list.get(2);
