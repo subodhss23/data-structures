@@ -117,8 +117,11 @@ class SinglyLinkedList{
         if(index === this.length ) return this.push(val);
         if(index === 0) return this.unshift(val);
         let prevNode = this.get(index-1);
-        
-        let beforeNode = 
+        let temp = prev.next;
+
+        newNode.next = temp;
+        this.length++;
+        return true;
     }
 }
 

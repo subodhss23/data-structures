@@ -10,7 +10,7 @@ class LinkedList{
     constructor(){
         this.head = null;
         this.tail = null;
-        this.size = 0;
+        this.length = 0;
     }
 
     push(val){
@@ -19,39 +19,26 @@ class LinkedList{
             this.head = newNode;
             this.tail = newNode;
         } else {
-            this.tail.next = newNode;
             newNode.prev = this.tail;
+            this.tail.next = newNode;
             this.tail = newNode;
         }
-        this.size++;
+        this.length++;
         return this;
     }
 
-    get(index){
-        if(index < 0 || this.size >= index) return undefined;
-        let count, current;
-        if(index < this.size / 2){
-            count = 0;
-            current = this.head;
-            while(index != count){
-                current = current.next;
-                count++;
-            }
+    pop(){
+        if(!this.head || this.length === 0) return undefined;
+        let removeTail = this.tail;
+        if(this.length === 1){
+            this.head = null;
+            this.tail = null;
         } else {
-            count = this.length - 1;
-            current = this.tail;
-            while(index != count){
-                current = current.prev;
-                count--;
-            } 
+            this.tail = removeTail.prev;
+            this.tail.prev = null;
+            removeTail.prev = null;
         }
-        console.log(current);
+        this.length--;
+        return(removeTail);
     }
-  
 }
-
-let list = new LinkedList();
-list.push(3);
-list.push(4);
-list.push(5);
-list.get(0);
