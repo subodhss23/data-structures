@@ -76,7 +76,7 @@ class DoublyLinkedList{
     // accessing a node in a doubly linked list by its position
     get(index){
         if (index < 0 || index >= this.length ) return undefined;
-        var current, count;
+        let current, count;
         if (index < this.length / 2){
             count = 0;
             current = this.head;
@@ -92,17 +92,56 @@ class DoublyLinkedList{
                 count--;
             }
         }
-         console.log(current);
+         return(current);
     }
 
     // set - replacing the value of a node in a doubly linked list
     set(index, val){
-        var foundNode = this.get(index);
+        let foundNode = this.get(index);
         if(foundNode !== null){
            foundNode.next = next;
             return true;
         } 
         return false;
+    }
+
+    // insert 
+    // adding a ndoe in a doubly linked list in a certain position
+    // insert(index, val){
+    //     if(index < 0 || index >= this.length) return undefinded;
+    //     if(index === 0) return !!this.unshifting(val);
+    //     if(index === this.length) return !!this.push(val); 
+    //     else {
+    //         let newNode = new Node(val);
+    //         let beforeNode = this.get(index-1);
+    //         let afterNode = beforeNode.next;
+
+    //         beforeNode.next = newNode;
+    //         newNode.prev = beforeNode;
+    //         newNode.next = afterNode;
+    //         afterNode.prev = newNode;
+    //         this.length++;
+    //         return true;
+    //     }
+    // }
+
+    // adding a node in doubly linked list in a certain index
+    insert(index, val){
+        if(index < 0 || index > this.length) return undefined;
+        if(index === 0) return !!this.unshifting(val);
+        if(index === this.length) return !!this.push(val);
+        
+        let newNode = new Node(val);
+        let beforeNode = this.get(index-1);
+        let afterNode = beforeNode.next;
+
+        beforeNode.next = newNode;
+        newNode.prev = beforeNode;
+        afterNode.prev = newNode;
+        newNode.next = afterNode;
+
+        this.length++;
+        console.log(true);
     }
 }
 
@@ -110,4 +149,5 @@ let list = new  DoublyLinkedList();
 list.push('first');
 list.push('second');
 list.push('third');
-list.set(1, 'what is up?');
+list.insert(1, "inserting yo");
+console.log(list);
