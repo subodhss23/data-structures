@@ -105,26 +105,6 @@ class DoublyLinkedList{
         return false;
     }
 
-    // insert 
-    // adding a ndoe in a doubly linked list in a certain position
-    // insert(index, val){
-    //     if(index < 0 || index >= this.length) return undefinded;
-    //     if(index === 0) return !!this.unshifting(val);
-    //     if(index === this.length) return !!this.push(val); 
-    //     else {
-    //         let newNode = new Node(val);
-    //         let beforeNode = this.get(index-1);
-    //         let afterNode = beforeNode.next;
-
-    //         beforeNode.next = newNode;
-    //         newNode.prev = beforeNode;
-    //         newNode.next = afterNode;
-    //         afterNode.prev = newNode;
-    //         this.length++;
-    //         return true;
-    //     }
-    // }
-
     // adding a node in doubly linked list in a certain index
     insert(index, val){
         if(index < 0 || index > this.length) return undefined;
@@ -143,11 +123,28 @@ class DoublyLinkedList{
         this.length++;
         console.log(true);
     }
+
+    // removing a node in a doubly linked list by a certain position
+    remove(index){
+        if(index < 0 || index >= this.length ) return undefined;
+        if(index === 0 ) return this.shift(index);
+        if(index === this.length - 1) return this.pop(index);
+
+        let removedNode = this.get(index);
+        removedNode.prev.next = removedNode.next;
+        removedNode.next.prev = removedNode.prev;
+
+        removedNode.prev = null;
+        removedNode.next = null;
+
+        this.length--;
+        return removedNode;
+    }
 }
 
 let list = new  DoublyLinkedList();
 list.push('first');
 list.push('second');
 list.push('third');
-list.insert(1, "inserting yo");
+list.remove(1);
 console.log(list);
