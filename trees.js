@@ -1,23 +1,47 @@
-// binary search tree
-
 class Node{
-    constructor(value){
-        this.value = value;
-        this.left = null;
+    constructor(val){
+        this.val = val;
         this.right = null;
+        this.left = null;
     }
 }
 
-class BinarySearchTree{
+class BST{
     constructor(){
         this.root = null;
     }
+
+    insert(val){
+        let newNode = new Node(val);
+        if(!this.root){
+            this.root = newNode;
+            return this;
+        }
+        let current = this.root;
+        while(true){
+            if(val === current.val) return undefined;
+            if(val < current.val){
+                if(current.left === null){
+                    current.left = newNode;
+                    return this;
+                }
+                current = current.left;
+            } else {
+                if(current.right === null){
+                    current.right = newNode;
+                    return this;
+                }
+                current = current.right;
+            }
+        }
+    }
 }
 
-var tree = new BinarySearchTree();
-tree.root = new Node(10);
-tree.root.right = new Node(12);
-tree.root.left = new Node(7);
-tree.root.right.right = new Node(15);
-tree.root.right.left = new Node(13);
+let tree = new BST();
+tree.insert(10);
+tree.insert(8);
+tree.insert(9);
+tree.insert(13);
+tree.insert(11);
+tree.insert(14);
 console.log(tree);
