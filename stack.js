@@ -32,6 +32,10 @@ class Stack{
         this.size = 0;
     }
 
+    // pushing and poping from the front of the list
+    // to optimize the process.
+
+    // adding nodes in the front of stack/linked list
     push(val){
         var newNode = new Node(val);
         if(!this.first){
@@ -43,8 +47,20 @@ class Stack{
             this.first.next = temp;
         }
         this.size++;
-        console.log(this.size);
-        console.log(this);
+        return(this.size);
+        
+    }
+
+    // removing node form the beginning of the list
+    pop(){
+        if(!this.first) return undefined;
+        var temp = this.first;
+        if(this.first === this.last){
+            this.last = null;
+        }
+        this.first = this.first.next;
+        this.size--;
+        console.log(temp.value);
     }
 }
 
@@ -52,3 +68,6 @@ let stack = new Stack();
 stack.push('1');
 stack.push('2');
 stack.push('3');
+stack.pop();
+stack.pop();
+console.log(stack);
