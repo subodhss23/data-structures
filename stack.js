@@ -1,23 +1,5 @@
-// define a stack
-// last in first out
-// last element added to the stack will be the first element removed
-// from the stack
 
-// managing function invocation
-// undo / redo
-// routing(the history object) is treated like a stack!
-
-
-// implementing array
-// var stack = [];
-// stack.push('google.com');
-// stack.push('instagram.com');
-// stack.push('youtube.com');
-// console.log(stack);
-// console.log(stack.pop());
-// console.log(stack);
-
-// implementing stack on linked list
+// implementing stack with linked list principle
 class Node{
     constructor(value){
         this.value = value;
@@ -25,6 +7,8 @@ class Node{
     }
 }
 
+// building stack with pushing and popping function from the beginning
+// rather than from the end to optimize the process and to get 0(1) result
 class Stack{
     constructor(){
         this.first = null;
