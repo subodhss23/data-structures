@@ -1,66 +1,32 @@
-class Node{
-    constructor(val){
-        this.val = val;
-        this.right = null;
-        this.left = null;
-    }
+// recursion
+// a process (a function) that calls itself 
+
+// call stack
+// it si a stack data structure 
+// any time a function is invoked it is placed(pushed) on the top 
+// of the call stack
+// when javascript sees the return keyword or when the function ends,
+// the compiler will remove(pop)
+
+
+function takeShower(){
+    return 'showering';
 }
 
-class BST{
-    constructor(){
-        this.root = null;
-    }
-
-
-    insert(val){
-        let newNode = new Node(val);
-        if(!this.root){
-            this.root = newNode;
-            return this;
-        }
-        let current = this.root;
-        while(true){
-            if(val < current.val){
-                if(current.left === null){
-                    current.left = newNode;
-                    return this;
-                }
-                current = current.left;
-            } else {
-                if(current.right === null){
-                    current.right = newNode;
-                    return this;
-                }
-                current = current.right;
-            }
-        }
-    }
-
-
-  find(val){
-      if(this.root === null) return undefined;
-      let current = this.root;
-      found = false;
-      while(current && !found){
-          if(val < current.val){
-              current = current.left;
-          } else if( val > current.val){
-              current = current.right;
-          } else {
-              found = true;
-          }
-      }
-      if(!found){
-          console.log('node not found');
-      }
-      return current;
-  }
+function eatBreakfast(){
+    let meal = cookFood();
+    return `Eating ${meal}`;
 }
 
-let tree = new BST();
-tree.insert(10);
-tree.insert(5);
-tree.insert(14);
-tree.insert(7);
-tree.insert(16);
-console.log(tree.find(10));
+function cookFood(){
+    let items =['oatmeal', 'eggs', 'protein shake'];
+    return items[Math.floor(Math.random()*items.length)];
+}
+
+function wakeUp(){
+    takeShower();
+    eatBreakfast();
+    console.log('ok ready to go to work!');
+}
+
+wakeUp();
