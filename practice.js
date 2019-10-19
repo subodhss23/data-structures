@@ -1,32 +1,27 @@
-// recursion
-// a process (a function) that calls itself 
+// invoke the same function witha different input until you
+// reach your base case
 
-// call stack
-// it si a stack data structure 
-// any time a function is invoked it is placed(pushed) on the top 
-// of the call stack
-// when javascript sees the return keyword or when the function ends,
-// the compiler will remove(pop)
+// base case
+// the condition when the recursion ends(important concept)
 
+// function countDown(num){
+//     if(num <= 0){
+//         console.log('All done');
+//     }
+//     else {
+//         console.log(num);
+//         num--;
+//         countDown(num);
+//     }
+// }
+// countDown(3);
 
-function takeShower(){
-    return 'showering';
+function factorial(num){
+    let total = 1;
+    for(let i = num; i > 1; i--){
+        total *= i;
+    }
+    return total;
 }
 
-function eatBreakfast(){
-    let meal = cookFood();
-    return `Eating ${meal}`;
-}
-
-function cookFood(){
-    let items =['oatmeal', 'eggs', 'protein shake'];
-    return items[Math.floor(Math.random()*items.length)];
-}
-
-function wakeUp(){
-    takeShower();
-    eatBreakfast();
-    console.log('ok ready to go to work!');
-}
-
-wakeUp();
+console.log(factorial(10));
