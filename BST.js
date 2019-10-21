@@ -59,8 +59,29 @@ class BST{
         }
         return current;
     }
+
+    contains(value){
+        if(this.root === null) return false;
+        var current = this.root,
+            found = false;
+        while(current && !found){
+            if(value < current.value){
+                current = current.left;
+            } else if(value > current.value){
+                current = current.right;
+            } else {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
-
 let newNode = new BST();
-console.log(newNode.find(10));
+newNode.insert(10);
+newNode.insert(8);
+newNode.insert(5);
+newNode.insert(12);
+newNode.insert(15);
+console.log(newNode.contains(12));
+console.log(newNode.contains(0));
