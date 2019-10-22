@@ -62,7 +62,7 @@ class BST{
 
     contains(value){
         if(this.root === null) return false;
-        var current = this.root,
+        let current = this.root,
             found = false;
         while(current && !found){
             if(value < current.value){
@@ -75,6 +75,20 @@ class BST{
         }
         return false;
     }
+
+    BFS(){
+        let node = this.root;
+        let data = [];
+        let queue = [];
+        queue.push(node);
+
+        while(queue.length){
+            node = queue.shift();
+            data.push(node.val);
+            if(node.left) queue.push(node.left);
+            if(node.right) queue.push(node.right);
+        }
+    }
 }
 
 let newNode = new BST();
@@ -83,5 +97,3 @@ newNode.insert(8);
 newNode.insert(5);
 newNode.insert(12);
 newNode.insert(15);
-console.log(newNode.contains(12));
-console.log(newNode.contains(0));
