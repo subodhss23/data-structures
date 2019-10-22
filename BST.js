@@ -88,6 +88,7 @@ class BST{
             if(node.left) queue.push(node.left);
             if(node.right) queue.push(node.right);
         }
+        return data;
     }
 }
 
@@ -95,5 +96,8 @@ let newNode = new BST();
 newNode.insert(10);
 newNode.insert(8);
 newNode.insert(5);
+newNode.insert(9);
+newNode.insert(11);
 newNode.insert(12);
 newNode.insert(15);
+console.log(newNode.BFS());
