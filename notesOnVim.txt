@@ -47,6 +47,28 @@ d$ - to delete till end of line
 4.2 THE SEARCH COMMAND
 
 	/   - followed by a phrase to search for the phrase
+		- to search for the same pharse press 'n'
+		- to search for a phrase in the backward direction, use ? instead of /.
+	CTRL-O - to go back to where you come from 
+	CTRL-I - to go forward
 
+4.3 MATCHING PRANTHESES SEARCH
+
+	%   - to find a matching ),], or }
+
+4.4 SUBSTITUTE COMMAND
+	
+	:s/old/new/  - to substute 'new' for 'old', in particular line
+	:s/old/new/g - adding g means globally/everywhere
+
+	:#,#s/old/new/g - #,# are the line number of the range of line where subtution is done
+	:%s/old/new/g	- to change every occurance in the while file
+	:s/old/new/gc	- to find every occurrence in the whole fine, with a prompt whether to 
+			  substitute or not.
+
+5.1 EXECUTE AN EXTERNAL COMMAND
+
+	:! - followed by an external command to execute that command
+	
 
 
