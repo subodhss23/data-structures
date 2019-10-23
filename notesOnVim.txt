@@ -70,5 +70,14 @@ d$ - to delete till end of line
 
 	:! - followed by an external command to execute that command
 	
+5.2 MORE ON WRITING FILES
 
+	:w - to save the changes made to the text
+	
+5.3 SELECTING TEXT TO WRITE
+
+	** To save part of the file, type 'v' motion :w FILENAME **
+	
+	v - to select the lines (like shift+arrow_key)
+	
 
