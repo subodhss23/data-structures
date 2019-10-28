@@ -80,4 +80,75 @@ d$ - to delete till end of line
 	
 	v - to select the lines (like shift+arrow_key)
 	
+5.4 RETRIEVING AND MERGING FILES
 
+	r - :r FILENAME to insert the contents of a file 
+
+6.1 THE OPEN COMMAND
+
+	o - to open line above the cursor
+	O - to open lined below the cursor
+
+6.2 THE APPEND COMMAND
+
+	a - to append text after the cursor.
+	e - until the cursor to the end of li.5.4 RETRIEVING AND MERGING FILES
+
+	r - :r FILENAME to insert the contents of a file 
+
+6.1 THE OPEN COMMAND
+
+	o - to open line above the cursor
+	O - to open lined below the cursor
+
+6.2 THE APPEND COMMAND
+
+	a - to append text after the cursor.
+	e - until the cursor to the end of li.5.4 RETRIEVING AND MERGING FILES
+
+	r - :r FILENAME to insert the contents of a file 
+
+6.1 THE OPEN COMMAND
+
+	o - to open line above the cursor
+	O - to open lined below the cursor
+
+6.2 THE APPEND COMMAND
+
+	a - to append text after the cursor.
+	e - until the cursor to the end of li.5.4 RETRIEVING AND MERGING FILES
+
+	r - :r FILENAME to insert the contents of a file 
+
+6.1 THE OPEN COMMAND
+
+	o - to open line above the cursor
+	O - to open lined below the cursor
+
+6.2 THE APPEND COMMAND
+
+	a - to append text after the cursor.
+	e - until the cursor to the end of li.
+
+	a, i and A go to the same Insert mode.
+
+6.3 ANOTHER WAY TO REPLACE
+
+	R - to replace more than one character.
+
+6.4 COPY AND PASTE TEXT
+
+	y - to copy
+	p - to paste
+
+6.5 SET OPTION
+
+	:set ic - setting up ingnore case while searching
+	:set hls is - setting up the 'hlsearch' and 'insearch' options
+	:set noic - disable ignoring case enter
+
+	
+	typing ":set xxx" sets the option 'xxx'. Some options are:
+		'ic''ignorecase' -- ignore upper/lower case when searching
+		'is''incsearch' -- show partial matches for a search parse
+		'hls''hlsearch' hightligh all matching phrase
