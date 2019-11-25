@@ -58,8 +58,13 @@ class Graph{
 		if(!vertex) return null;
 		visited[vertex] = true;
 		result.push(vertex);
-		console.log(adjacencyList[vertex]);
-	})(start)
+	adjacencyList[vertex].forEach(neighbor => {
+		if(!visited[neighbor]){
+			return dfs(neighbor);
+		}
+	});
+	})(start);
+	return result;
 }
 }
 
@@ -80,7 +85,9 @@ g.addEdge("D", "E");
 g.addEdge("D", "F");
 g.addEdge("E", "F");
 
-g.depthFirstRecursive("A");
+console.log(g.depthFirstRecursive("A"));
 g.depthFirstRecursive("E");
-g.depthFirstRecursive("F");
+//console.log(g.depthFirstRecursive("F"));
 console.log(g)
+
+
